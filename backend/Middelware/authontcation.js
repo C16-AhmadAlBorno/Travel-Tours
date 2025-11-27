@@ -29,3 +29,4 @@ const authontcation = (req, res, next) => {
     });
   }
 };
+module.exports = authontcation;
