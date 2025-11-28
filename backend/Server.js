@@ -8,7 +8,7 @@ const paymentRouter = require("./Routes/payment");
 //require("dotenv").config();
 require("./models/db");
 const app = express();
-app.use(express);
+app.use(express.json());
 const PORT = 5000;
 app.use("/customers", customersrouter);
 app.use("/roles", roleRouter);
