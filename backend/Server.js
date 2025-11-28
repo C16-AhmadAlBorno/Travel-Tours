@@ -5,7 +5,7 @@ const tourPacakeRouter = require("./Routes/tourpackege");
 const airlineRouter = require("./Routes/airline");
 const hotelRouter = require("./Routes/hotels");
 const paymentRouter = require("./Routes/payment");
-//require("dotenv").config();
+require("dotenv").config();
 require("./models/db");
 const app = express();
 app.use(express.json());
