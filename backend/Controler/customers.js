@@ -41,7 +41,7 @@ const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   customersModel
     .findOne({ email })
-    .populate("role", "-_id -__v")
+    .populate("role", "_id -__v")
     .then(async (result) => {
       if (!result) {
         return res.status(403).json({

@@ -14,17 +14,17 @@ const paymentSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["pending", "completed", "failed", "refunded"],
+
     default: "pending",
+  },
+  tourPackage: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Tour",
+  },
 
-    tourPackage: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Tour",
-    },
-
-    hotelBooking: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Hotel",
-    },
+  hotelBooking: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hotel",
   },
 });
-module.exports = mongoose.model("", paymentSchema);
+module.exports = mongoose.model("Payment", paymentSchema);

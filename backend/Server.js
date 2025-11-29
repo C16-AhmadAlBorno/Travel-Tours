@@ -15,7 +15,7 @@ app.use("/roles", roleRouter);
 app.use("/tours", tourPacakeRouter);
 app.use("/airlines", airlineRouter);
 app.use("/hotels", hotelRouter);
-app.use("/payment", paymentRouter);
+app.use("/payments", paymentRouter);
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
