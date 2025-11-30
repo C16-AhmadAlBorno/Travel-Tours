@@ -9,6 +9,8 @@ require("dotenv").config();
 require("./models/db");
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+app.use(cors());
 const PORT = 5000;
 app.use("/customers", customersrouter);
 app.use("/roles", roleRouter);
