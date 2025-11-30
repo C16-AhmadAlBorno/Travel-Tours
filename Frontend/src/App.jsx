@@ -10,12 +10,12 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Language from "./components/Language";
 import Slider from "./components/Slider";
-
+import Tourpackages from "./components/Tourpackages";
 export const travelContext = createContext();
 function App() {
+  const [tourPackage, setTourPackage] = useState([]);
   return (
-    <travelContext.Provider>
-      
+    <travelContext.Provider value={{ tourPackage, setTourPackage }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Login" element={<Login />} />
@@ -24,8 +24,8 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Language" element={<Language />} />
       </Routes>
-         <Slider />
-
+      <Slider />
+      <Tourpackages />
     </travelContext.Provider>
   );
 }

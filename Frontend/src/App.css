@@ -1,8 +1,14 @@
+#root{
+
+  
+    
+}
+
 body{
     background-image: url("https://www.annajah.net/resources/thumbs/article_photos/article-xOTdgspr91oz.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: scroll;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
   
 }
 .topPage {
