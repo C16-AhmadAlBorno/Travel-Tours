@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import { travelContext } from "../App";
+import { useContext } from "react";
 function Cart() {
-  return (
-    <div>Cart</div>
-  )
+  const [cart, setCart] = useContext(travelContext);
+  return <div>
+    {}
+
+  </div>;
 }
 
-export default Cart
+export default Cart;

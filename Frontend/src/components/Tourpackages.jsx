@@ -9,24 +9,24 @@ function Tourpackages() {
     axios
       .get("http://localhost:5000/tours/Packages")
       .then((res) => {
-              console.log("Data from backend:", res.data);
+        //console.log("Data from backend:", res.data.result);
 
-        setTourPackage(res.data);
+        setTourPackage(res.data.result);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
-      {Array.isArray(tourPackage) &&
-        tourPackage.map((tour, index) => {
-          return (
-            <div key={index}>
-              <img src={tour.images[0]} alt="hotel" />
-              <p>{tour.hotel}</p>
-            </div>
-          );
-        })}
+      {tourPackage.map((tour, index) => {
+        //console.log(tour);
+
+        return (
+          <div key={index}>
+            <img src={tour.hotel.images} alt="hotel" />
+          </div>
+        );
+      })}
     </div>
   );
 }

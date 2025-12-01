@@ -14,17 +14,42 @@ import Tourpackages from "./components/Tourpackages";
 export const travelContext = createContext();
 function App() {
   const [tourPackage, setTourPackage] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  localStorage.getItem(token);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <travelContext.Provider value={{ tourPackage, setTourPackage }}>
+    <travelContext.Provider
+      value={{
+        tourPackage,
+        setTourPackage,
+        cart,
+        setCart,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        token,
+        setToken,
+        isLoggedIn,
+        setIsLoggedIn,
+      }}
+    >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/" element={<Home  />} />
+        <Route
+          path="/Login"
+          element={<Login setToken={setToken} setIsLoggedIn={setIsLoggedIn} />}
+        />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Language" element={<Language />} />
       </Routes>
       <Slider />
+
       <Tourpackages />
     </travelContext.Provider>
   );
