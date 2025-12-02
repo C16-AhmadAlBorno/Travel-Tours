@@ -37,11 +37,17 @@ const createCustomer = (req, res) => {
 };
 //==============Login==============
 const login = (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    return res.status(400).json({
+      success: false,
+      message: "Email and password are required",
+    });
+  }
   const password = req.body.password;
   const email = req.body.email.toLowerCase();
   customersModel
     .findOne({ email })
-    .populate("role", "_id -__v")
+    .populate("role", "role -_id")
     .then(async (result) => {
       if (!result) {
         return res.status(403).json({
