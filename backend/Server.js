@@ -5,6 +5,7 @@ const tourPacakeRouter = require("./Routes/tourpackege");
 const airlineRouter = require("./Routes/airline");
 const hotelRouter = require("./Routes/hotels");
 const paymentRouter = require("./Routes/payment");
+const cartRouter = require("./Routes/cart");
 require("dotenv").config();
 require("./models/db");
 const app = express();
@@ -18,6 +19,8 @@ app.use("/tours", tourPacakeRouter);
 app.use("/airlines", airlineRouter);
 app.use("/hotels", hotelRouter);
 app.use("/payments", paymentRouter);
+app.use("/Carts", cartRouter);
+
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
 });
