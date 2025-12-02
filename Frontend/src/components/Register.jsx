@@ -1,16 +1,12 @@
 import React from "react";
 import { useContext, useEffect } from "react";
 import { travelContext } from "../App";
-import { Form } from "react-bootstrap";
+import { Form, FormLabel, FormControl, FormGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import { data } from "react-router-dom";
+import { data, Navigate } from "react-router-dom";
 function Register() {
   const {
-    tourPackage,
-    setTourPackage,
-    cart,
-    setCart,
     email,
     setEmail,
     password,
@@ -39,7 +35,8 @@ function Register() {
     axios
       .post("http://localhost:5000/customers/register", custumerNewdata)
       .then((res) => {
-        console.log("register sucssfuly", res.data);
+        console.log("register sucssfuly", res.data.result);
+        <div> { res.data.result} </div>
       })
       .catch((err) => {
         console.log(err);
@@ -47,7 +44,7 @@ function Register() {
   };
   return (
     <div>
-      <Form>
+      <Form className="registerpage">
         <FormGroup className="mb-3" controlId="formBasicfirstname">
           <FormLabel>firstname</FormLabel>
           <FormControl
@@ -87,20 +84,11 @@ function Register() {
           />
         </FormGroup>
 
-        <FormGroup className="mb-3" controlId="formBasicConfirmPassword">
-          <FormLabel>Confirm Password</FormLabel>
-          <FormControl
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </FormGroup>
         <FormGroup className="mb-3" controlId="formBasicrole">
           <FormLabel>Role</FormLabel>
           <FormControl
             type="text"
-            placeholder="Enter lastname"
+            placeholder="Enter role"
             value={role}
             onChange={(e) => setRole(e.target.value)}
           />

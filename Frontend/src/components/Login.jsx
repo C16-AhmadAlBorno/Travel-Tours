@@ -21,10 +21,9 @@ function Login() {
     axios
       .post("http://localhost:5000/customers/login", customerData)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.token);
         setToken(res.data.token);
-        console.log(res.data.token);
+        
         
         setIsLoggedIn(true);
       })

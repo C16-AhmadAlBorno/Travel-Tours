@@ -27,7 +27,7 @@ function Home() {
         <Link to="/Login">Login</Link>
         <Link to="/Cart">Cart</Link>
         <Link to="/AboutUs">AboutUs</Link>
-        <Link to="/CntactUs">CntactUs</Link>
+        <Link to="/ContactUs">CntactUs</Link>
         <Link to="/Language">Language</Link>
       </div>
     </div>

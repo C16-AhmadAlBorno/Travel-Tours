@@ -1,28 +1,38 @@
-#root{
-
-  
-    
-}
-
-body{
+body {
     background-image: url("https://www.annajah.net/resources/thumbs/article_photos/article-xOTdgspr91oz.jpg");
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
-  
+    background-position: center;
+    color: black;
+
+
 }
+#root{
+     color: black;
+   
+}
+
 .topPage {
     display: flex;
-    
+
     justify-content: space-between;
 }
 
 .topLink {
     display: flex;
     gap: 150px;
+         color: black;
+
 }
-.Loginpage{
+
+.Loginpage {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
+}
+
+.registerpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
