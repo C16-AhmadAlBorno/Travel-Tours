@@ -19,11 +19,14 @@ function Tourpackages() {
   return (
     <div>
       {tourPackage.map((tour, index) => {
-        //console.log(tour);
+        console.log(tour);
 
         return (
           <div key={index}>
-            <img src={tour.hotel.images} alt="hotel" />
+            <img src={tour.hotel.images} width="100px" height="100px" alt="hotel" />
+            <p>{tour.hotel.name}
+              {tour.packageName}
+            </p>
           </div>
         );
       })}
