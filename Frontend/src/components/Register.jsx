@@ -43,11 +43,11 @@ function Register() {
       });
   };
   return (
-    <div>
+    <div className="buttonregister">
       <Form className="registerpage">
         <FormGroup className="mb-3" controlId="formBasicfirstname">
           <FormLabel>firstname</FormLabel>
-          <FormControl
+          <FormControl className="registerfeild"
             type="text"
             placeholder="Enter firstname"
             value={firstname}
@@ -56,7 +56,7 @@ function Register() {
         </FormGroup>
         <FormGroup className="mb-3" controlId="formBasiclastname">
           <FormLabel>lastname</FormLabel>
-          <FormControl
+          <FormControl className="registerfeild"
             type="text"
             placeholder="Enter lastname"
             value={lastname}
@@ -67,6 +67,7 @@ function Register() {
         <FormGroup className="mb-3" controlId="formBasicEmail">
           <FormLabel>Email address</FormLabel>
           <FormControl
+          className="registerfeild"
             type="email"
             placeholder="Enter email"
             value={email}
@@ -77,6 +78,7 @@ function Register() {
         <FormGroup className="mb-3" controlId="formBasicPassword">
           <FormLabel>Password</FormLabel>
           <FormControl
+          className="registerfeild"
             type="password"
             placeholder="Password"
             value={password}
@@ -87,6 +89,7 @@ function Register() {
         <FormGroup className="mb-3" controlId="formBasicrole">
           <FormLabel>Role</FormLabel>
           <FormControl
+          className="registerfeild"
             type="text"
             placeholder="Enter role"
             value={role}
@@ -94,7 +97,7 @@ function Register() {
           />
         </FormGroup>
       </Form>
-      <button onClick={registerNew}>Register</button>
+      <button className="buttonregister" onClick={registerNew}>Register</button>
     </div>
   );
 }

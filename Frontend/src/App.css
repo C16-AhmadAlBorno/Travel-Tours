@@ -1,7 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-image: linear-gradient(to bottom, rgb(97, 97, 177), blue);
 
-
+    width: 100%;
+    overflow-x: hidden;
 }
 
 #root {
@@ -11,7 +18,8 @@ body {
 
 .topPage {
     display: flex;
-
+    flex-wrap: wrap;
+    text-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -42,6 +50,8 @@ body {
     text-transform: uppercase;
     text-align-last: center;
     text-align: center;
+    background-image: linear-gradient(to bottom, rgb(97, 174, 177), #00c4b4);
+
 
 }
 
@@ -51,7 +61,37 @@ body {
 
 .packageimage {
     display: flex;
-background-origin:border-box;
-    gap: 50px;
+    background-origin: border-box;
+    gap: 60px;
     flex-wrap: wrap;
+}
+
+.buttonregister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.mb-3 {
+    font-size: xx-large;
+}
+
+.registerfeild {
+    padding-left: 200px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    background-color: seagreen;
+    font-size: large;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.languagechang {
+    display: flex;
+    flex-direction: row;
 }

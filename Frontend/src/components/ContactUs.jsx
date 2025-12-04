@@ -8,7 +8,12 @@ function ContactUs() {
         <div className="container">
           <div className="row justify-content-between py-4">
             <div className="col-lg-6 order-2 mb-3 mb-lg-0">
-              <div className="contactswith"></div>
+              <div className="contactswith">
+                <img
+                  src="https://media.istockphoto.com/id/1192055884/vector/contact-us-symbols-social-media-network-icon-symbols-colour-color-network-icons-icon-call-us.jpg?s=612x612&w=0&k=20&c=L9y6nDhnNsh-vDmnrmt1S6tLFFmYSyZ0xag8hN30EG8="
+                  alt="s"
+                />
+              </div>
             </div>
             <div className="col-lg-5">
               <div className="">

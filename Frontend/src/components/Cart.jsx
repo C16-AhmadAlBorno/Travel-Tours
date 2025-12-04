@@ -8,8 +8,6 @@ function Cart() {
     axios
       .get("http://localhost:5000/Carts/items")
       .then((res) => {
-        //console.log("Data from backend:", res.data.result);
-
         setCart(res.data.result);
       })
       .catch((err) => console.log(err));

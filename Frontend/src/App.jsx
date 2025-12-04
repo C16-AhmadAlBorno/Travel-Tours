@@ -12,6 +12,9 @@ import Language from "./components/Language";
 import Slider from "./components/Slider";
 import Tourpackages from "./components/Tourpackages";
 import Register from "./components/Register";
+import Map from "./components/Map";
+import Bottompage from "./components/Bottompage";
+import i18n from "./components/I18n";
 export const travelContext = createContext();
 function App() {
   const [tourPackage, setTourPackage] = useState([]);
@@ -66,13 +69,19 @@ function App() {
           element={
             <>
               <Home />
-              <Slider />
+              <Slider /> <br />
               <Tourpackages />
+              <br />
               <div>
                 <AboutUs />
+                <br />
               </div>
               <div>
                 <ContactUs />
+              </div>
+              <br />
+              <div>
+                <Bottompage />
               </div>
             </>
           }
@@ -83,7 +92,6 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/Language" element={<Language />} />
       </Routes>
     </travelContext.Provider>
   );
