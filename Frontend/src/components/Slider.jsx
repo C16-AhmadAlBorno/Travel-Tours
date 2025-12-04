@@ -35,7 +35,7 @@ function Slider() {
                 src={country.url}
                 alt={country.caption}
                 title={country.caption}
-                style={{ width: "1150px", height: "250px", objectFit: "cover" }}
+                style={{ width: "1800px", height: "500px", objectFit: "cover" }}
               />
             </div>
           );

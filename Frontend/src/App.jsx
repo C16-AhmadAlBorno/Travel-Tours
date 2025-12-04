@@ -61,7 +61,23 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <Slider />
+              <Tourpackages />
+              <div>
+                <AboutUs />
+              </div>
+              <div>
+                <ContactUs />
+              </div>
+            </>
+          }
+        />
+
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Cart" element={<Cart />} />
@@ -69,9 +85,6 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Language" element={<Language />} />
       </Routes>
-      <Slider />
-
-      <Tourpackages />
     </travelContext.Provider>
   );
 }

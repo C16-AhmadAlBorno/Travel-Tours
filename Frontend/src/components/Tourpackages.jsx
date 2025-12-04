@@ -21,18 +21,16 @@ function Tourpackages() {
     axios
       .post("http://localhost:5000/Carts/new", item)
       .then((res) => {
-
-
         setCart(res.data);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div>
+    <div className="packageimage">
       {tourPackage.map((tour, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="">
             <Card style={{ width: "18rem" }}>
               <Card.Img src={tour.hotel.images} alt="hotel" />
               <Card.Body>
