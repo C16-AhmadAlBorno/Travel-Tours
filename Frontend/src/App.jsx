@@ -8,17 +8,20 @@ import Login from "./components/Login";
 import Cart from "./components/Cart";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
-import Language from "./components/Language";
 import Slider from "./components/Slider";
 import Tourpackages from "./components/Tourpackages";
 import Register from "./components/Register";
 import Map from "./components/Map";
-
+import PackageDetails from "./components/PackageDetails";
+import { useLocation } from "react-router-dom";
 import Bottompage from "./components/Bottompage";
 import i18n from "./components/I18n";
+import Navbar from "./components/Home";
 export const travelContext = createContext();
 
 function App() {
+  const location = useLocation();
+
   const [tourPackage, setTourPackage] = useState([]);
   const [cart, setCart] = useState("");
   const [email, setEmail] = useState("");
@@ -29,6 +32,8 @@ function App() {
   const [role, setRole] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [packagedetailes, setpackageDetailes] = useState([]);
+  const [showNavbar, setShowNavbar] = useState(true);   
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -40,6 +45,8 @@ function App() {
       }
     }
   }, []);
+
+
   return (
     <travelContext.Provider
       value={{
@@ -63,8 +70,17 @@ function App() {
         setRole,
         confirmPassword,
         setConfirmPassword,
+        packagedetailes,
+        setpackageDetailes,
+        showNavbar,
+        setShowNavbar,
       }}
     >
+      {!showNavbar ||
+      location.pathname === "/Login" ||
+      location.pathname === "/Register" ? null :<Home />
+      
+      }
       <Routes>
         <Route
           path="/"
@@ -95,6 +111,7 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/PackageDetails/:id" element={<PackageDetails />} />
       </Routes>
     </travelContext.Provider>
   );

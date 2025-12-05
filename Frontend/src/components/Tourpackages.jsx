@@ -5,10 +5,16 @@ import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 function Tourpackages() {
-    const navigate = useNavigate();
-  
-  const { tourPackage, setTourPackage, cart, setCart } =
-    useContext(travelContext);
+  const navigate = useNavigate();
+
+  const {
+    tourPackage,
+    setTourPackage,
+    cart,
+    setCart,
+    packagedetailes,
+    setpackageDetailes,
+  } = useContext(travelContext);
   useEffect(() => {
     axios
       .get("http://localhost:5000/tours/Packages")
@@ -45,9 +51,9 @@ function Tourpackages() {
                   Add To Cart
                 </Button>
 
-                <Button variant="primary" onClick={() => navigate("/AboutUs")}>
-                  More Detailes
-                </Button>
+                <Link to={`/PackageDetails/${tour._id}`}>
+                  <Button variant="primary">More Details</Button>
+                </Link>
               </Card.Body>
             </Card>
           </div>

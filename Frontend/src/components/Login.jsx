@@ -6,6 +6,8 @@ import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 function Login() {
+    const { setShowNavbar } = useContext(travelContext);
+
   const {
     email,
     setEmail,
@@ -24,7 +26,7 @@ function Login() {
         localStorage.setItem("token", res.data.token);
         setToken(res.data.token);
         
-        
+        setShowNavbar(false)
         setIsLoggedIn(true);
       })
       .catch((err) => {
@@ -33,7 +35,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="loginnow">
       <Form className="Loginpage">
         <Form.Group
           className="LoginCustomer"
@@ -62,8 +64,8 @@ function Login() {
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
       </Form>
-      <button onClick={loginPortalnew}>Login test</button>
-    </>
+      <button className="loginbutton" onClick={loginPortalnew}>Login </button>
+    </div>
   );
 }
 
