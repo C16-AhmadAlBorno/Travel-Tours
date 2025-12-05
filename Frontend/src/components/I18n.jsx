@@ -18,15 +18,16 @@ i18n.use(initReactI18next).init({
         home: "الرئيسية",
         login: "تسجيل دخول",
         register: "إنشاء حساب",
-        cart: "السلة",
-        contact: "اتصل بنا",
+        Cart : "السلة",
+        ContactUs: "اتصل بنا",
         logout: "تسجيل خروج",
+        AboutUs: "نحن",
       },
     },
   },
 
-  lng: "en", // اللغة الافتراضية
-  fallbackLng: "en", // لو ما لقى الترجمة
+  lng: "en",
+  fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },

@@ -3,8 +3,10 @@ import { useContext, useEffect } from "react";
 import { travelContext } from "../App";
 import axios from "axios";
 import { Card, Button } from "react-bootstrap";
-
+import { Link, useNavigate } from "react-router-dom";
 function Tourpackages() {
+    const navigate = useNavigate();
+  
   const { tourPackage, setTourPackage, cart, setCart } =
     useContext(travelContext);
   useEffect(() => {
@@ -41,6 +43,10 @@ function Tourpackages() {
                 </Card.Text>
                 <Button variant="primary" onClick={() => addToCart(tour)}>
                   Add To Cart
+                </Button>
+
+                <Button variant="primary" onClick={() => navigate("/AboutUs")}>
+                  More Detailes
                 </Button>
               </Card.Body>
             </Card>

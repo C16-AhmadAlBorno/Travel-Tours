@@ -13,7 +13,7 @@ function Cart() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <>
+    <div>
       {Array.isArray(cart) &&
         cart.map((item, i) => {
           return (
@@ -22,7 +22,7 @@ function Cart() {
             </div>
           );
         })}
-    </>
+    </div>
   );
 }
 

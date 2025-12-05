@@ -6,6 +6,7 @@
 
 body {
     background-image: linear-gradient(to bottom, rgb(97, 97, 177), blue);
+    font-family: Arial, Helvetica, sans-serif;
 
     width: 100%;
     overflow-x: hidden;
@@ -43,7 +44,7 @@ body {
 }
 
 .AboutUs {
-    border: 5px solid whitesmoke;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +52,7 @@ body {
     text-align-last: center;
     text-align: center;
     background-image: linear-gradient(to bottom, rgb(97, 174, 177), #00c4b4);
-
+font-weight: bolder;
 
 }
 
@@ -94,4 +95,125 @@ body {
 .languagechang {
     display: flex;
     flex-direction: row;
+}
+
+
+
+.contact-page {
+    background-image: url("https://tripyana.com/ar/wp-content/uploads/2016/05/photos-turkey-4-1-1024x771.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 60px 0;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    color: #FFFFFF;
+   
+}
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: #f8f8f8;
+}
+
+/* ===========================
+    الموبايل (شاشات صغيرة)
+=========================== */
+@media (max-width: 600px) {
+
+  /* العناوين */
+  h1, h2, h3 {
+    font-size: 20px !important;
+    text-align: center;
+  }
+
+  /* النصوص */
+  p {
+    font-size: 14px !important;
+    text-align: center;
+  }
+
+  /* السلايدر */
+  .slider-container {
+    height: 200px !important;
+  }
+
+  /* الصور */
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* الكونتينر */
+  .container {
+    padding: 10px !important;
+  }
+
+  /* الماب */
+  iframe {
+    height: 250px !important;
+  }
+}
+
+/* ===========================
+    التابلت
+=========================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  h1 { font-size: 28px !important; }
+  p { font-size: 16px !important; }
+
+  .slider-container {
+    height: 300px !important;
+  }
+
+  iframe {
+    height: 300px !important;
+  }
+}
+
+/* ===========================
+     اللابتوب
+=========================== */
+@media (min-width: 1025px) and (max-width: 1920px) {
+
+  h1 { font-size: 36px; }
+  p { font-size: 18px; }
+
+  .slider-container {
+    height: 450px;
+  }
+
+  iframe {
+    height: 400px;
+  }
+}
+
+/* ===========================
+    التلفزيونات 4K وما فوق
+=========================== */
+@media (min-width: 1921px) {
+
+  h1 { font-size: 60px; }
+  p { font-size: 28px; }
+
+  .slider-container {
+    height: 650px;
+  }
+
+  iframe {
+    height: 600px;
+  }
+
+  .container {
+    padding: 50px;
+  }
 }

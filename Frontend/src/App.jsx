@@ -13,12 +13,14 @@ import Slider from "./components/Slider";
 import Tourpackages from "./components/Tourpackages";
 import Register from "./components/Register";
 import Map from "./components/Map";
+
 import Bottompage from "./components/Bottompage";
 import i18n from "./components/I18n";
 export const travelContext = createContext();
+
 function App() {
   const [tourPackage, setTourPackage] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
@@ -80,6 +82,7 @@ function App() {
                 <ContactUs />
               </div>
               <br />
+              <Map />
               <div>
                 <Bottompage />
               </div>

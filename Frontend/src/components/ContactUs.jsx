@@ -3,8 +3,8 @@ import { Card, Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 function ContactUs() {
   return (
-    <>
-      <section className="ezy__contact7 light">
+    <div>
+      <section className="contact-page">
         <div className="container">
           <div className="row justify-content-between py-4">
             <div className="col-lg-6 order-2 mb-3 mb-lg-0">
@@ -61,7 +61,7 @@ function ContactUs() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
