@@ -14,13 +14,14 @@ function Cart() {
   }, []);
   return (
     <>
-      {cart.map((item, i) => {
-        return (
-          <div key={i}>
-            <p>{item.price}</p>
-          </div>
-        );
-      })}
+      {Array.isArray(cart) &&
+        cart.map((item, i) => {
+          return (
+            <div key={i}>
+              <p>{item.price}</p>
+            </div>
+          );
+        })}
     </>
   );
 }
