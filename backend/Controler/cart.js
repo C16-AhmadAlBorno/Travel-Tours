@@ -62,11 +62,11 @@ const cartDeleted = (req, res) => {
 };
 //================== update item in cart ==================
 const updateCartItem = (req, res) => {
-  const { id } = req.params;
+  const { _id } = req.params;
   const { tourpackage } = req.body;
 
   cartModel
-    .findByIdAndUpdate(id, { tourpackage }, { new: true })
+    .findByIdAndUpdate(_id, { tourpackage }, { new: true })
     .then((result) => {
       if (!result) {
         return res.status(404).json({

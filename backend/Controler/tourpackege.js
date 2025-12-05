@@ -63,5 +63,34 @@ const tourPackages = (req, res) => {
       });
     });
 };
+//==============PACAGEBYID==============
+const getTourById = (req, res) => {
+  const { _id } = req.params;
 
-module.exports = { createPackage, tourPackages };
+  tourPackageModel
+    .findById(_id )
+    .populate("airline")
+    .populate("hotel")
+    .then((result) => {
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: "Package not found",
+        });
+      }
+
+      res.status(200).json({
+        success: true,
+        message: "Package found",
+        package: result,
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        message: "Server error",
+        error,
+      });
+    });
+};
+module.exports = { createPackage, tourPackages, getTourById };
