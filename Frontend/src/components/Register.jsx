@@ -4,9 +4,10 @@ import { travelContext } from "../App";
 import { Form, FormLabel, FormControl, FormGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import axios from "axios";
-import { data, Navigate } from "react-router-dom";
+import { data, Navigate, useNavigate } from "react-router-dom";
 function Register() {
     const { setShowNavbar } = useContext(travelContext);
+  const navigate = useNavigate();
 
   const {
     email,
@@ -40,6 +41,7 @@ function Register() {
         console.log("register sucssfuly", res.data.result);
         <div> { res.data.result} </div>
         setShowNavbar(false)
+        navigate("/")
       })
       .catch((err) => {
         console.log(err);

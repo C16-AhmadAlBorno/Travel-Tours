@@ -23,7 +23,7 @@ function App() {
   const location = useLocation();
 
   const [tourPackage, setTourPackage] = useState([]);
-  const [cart, setCart] = useState("");
+  const [cart, setCart] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");

@@ -2,11 +2,12 @@ import React from "react";
 import { useContext, useEffect } from "react";
 import { travelContext } from "../App";
 import axios from "axios";
-
+import { Link, useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 function Login() {
-    const { setShowNavbar } = useContext(travelContext);
+  const { setShowNavbar } = useContext(travelContext);
+  const navigate = useNavigate();
 
   const {
     email,
@@ -25,9 +26,10 @@ function Login() {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         setToken(res.data.token);
-        
-        setShowNavbar(false)
+
+        setShowNavbar(false);
         setIsLoggedIn(true);
+        navigate("/Home");
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +66,9 @@ function Login() {
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
       </Form>
-      <button className="loginbutton" onClick={loginPortalnew}>Login </button>
+      <button className="loginbutton" onClick={loginPortalnew}>
+        Login{" "}
+      </button>
     </div>
   );
 }

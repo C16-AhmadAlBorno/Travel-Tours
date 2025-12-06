@@ -3,16 +3,18 @@ import { travelContext } from "../App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Login from "./Login";
 
 function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
-  const { setToken, setIsLoggedIn } = useContext(travelContext);
+  const { setToken, setIsLoggedIn, isLoggedIn } = useContext(travelContext);
   const { showNavbar } = useContext(travelContext);
 
   const logout = () => {
     localStorage.removeItem("token");
+
     setToken("");
     setIsLoggedIn(false);
     navigate("/");
@@ -58,9 +60,12 @@ function Home() {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Login">
-                    {t("login")}
-                  </Link>
+                  {!isLoggedIn && (
+                    <Link className="nav-link" to="/Login">
+                      {t("login")}
+                      
+                    </Link>
+                  )}
                 </li>
 
                 <li className="nav-item">
@@ -102,10 +107,14 @@ function Home() {
                 >
                   EN
                 </button>
-
-                <button className="btn btn-light btn-sm ms-2" onClick={logout}>
-                  Logout
-                </button>
+                {isLoggedIn && (
+                  <button
+                    className="btn btn-light btn-sm ms-2"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
             </div>
           </div>
