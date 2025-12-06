@@ -51,7 +51,7 @@ function Tourpackages() {
                   Add To Cart
                 </Button>
 
-                <Link to={`/PackageDetails/${tour._id}`}>
+                <Link className="detailes" to={`/PackageDetails/${tour._id}`}>
                   <Button variant="primary">More Details</Button>
                 </Link>
               </Card.Body>

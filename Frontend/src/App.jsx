@@ -86,7 +86,6 @@ function App() {
           path="/"
           element={
             <>
-              <Home />
               <Slider /> <br />
               <Tourpackages />
               <br />

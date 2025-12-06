@@ -31,19 +31,12 @@ body {
 
 }
 
-.Loginpage {
-    display: flex;
-    flex-direction: column;
 
 
 
-}
 
-.registerpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
+
 
 .AboutUs {
 
@@ -69,12 +62,6 @@ body {
     flex-wrap: wrap;
 }
 
-.buttonregister {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
 
 .mb-3 {
     font-size: xx-large;
@@ -311,4 +298,90 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+/*register page desgine*/
+
+.buttonregister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.registerpage {
+    width: 420px;
+    padding: 30px 35px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+    border: 1px solid #e6e6e6;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.registerpage label {
+    font-weight: 600;
+    color: #2f2f6a;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.registerfeild {
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    border: 1px solid #ccc !important;
+    transition: 0.2s ease !important;
+}
+
+.registerfeild:focus {
+    border-color: #2f2f6a !important;
+    box-shadow: 0 0 6px rgba(47, 47, 106, 0.4) !important;
+}
+
+.buttonregister button {
+    width: 420px;
+    padding: 12px;
+    background: #2f2f6a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(47, 47, 106, 0.4);
+}
+
+.buttonregister button:hover {
+    background: #242455;
+    transform: translateY(-2px);
+}
+
+.buttonregister button:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+
+    .registerpage,
+    .buttonregister button {
+        width: 90%;
+    }
+}
+.detailes{
+    padding: 13px;
 }
