@@ -7,8 +7,8 @@
 body {
     background-image: linear-gradient(to bottom, rgb(97, 97, 177), blue);
     font-family: Arial, Helvetica, sans-serif;
-
     width: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -34,7 +34,9 @@ body {
 .Loginpage {
     display: flex;
     flex-direction: column;
-    align-items: center;
+
+
+
 }
 
 .registerpage {
@@ -124,12 +126,9 @@ body {
     background-color: #f8f8f8;
 }
 
-/* ===========================
-    الموبايل (شاشات صغيرة)
-=========================== */
 @media (max-width: 600px) {
 
-    /* العناوين */
+
     h1,
     h2,
     h3 {
@@ -137,37 +136,30 @@ body {
         text-align: center;
     }
 
-    /* النصوص */
     p {
         font-size: 14px !important;
         text-align: center;
     }
 
-    /* السلايدر */
     .slider-container {
         height: 200px !important;
     }
 
-    /* الصور */
     img {
         width: 100% !important;
         height: auto !important;
     }
 
-    /* الكونتينر */
     .container {
         padding: 10px !important;
     }
 
-    /* الماب */
     iframe {
         height: 250px !important;
     }
 }
 
-/* ===========================
-    التابلت
-=========================== */
+
 @media (min-width: 601px) and (max-width: 1024px) {
 
     h1 {
@@ -187,9 +179,7 @@ body {
     }
 }
 
-/* ===========================
-     اللابتوب
-=========================== */
+
 @media (min-width: 1025px) and (max-width: 1920px) {
 
     h1 {
@@ -209,9 +199,7 @@ body {
     }
 }
 
-/* ===========================
-    التلفزيونات 4K وما فوق
-=========================== */
+
 @media (min-width: 1921px) {
 
     h1 {
@@ -240,4 +228,87 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+
+
+
+
+
+
+.loginnow {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #3b3b98, #0b21d4);
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+.Loginpage {
+    width: 380px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.Loginpage label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.Loginpage .form-control {
+    background: rgba(0, 0, 0, 0.35);
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+.Loginpage .form-control::placeholder {
+    color: #dcdcdc;
+}
+
+.LoginCustomer,
+.LoginPassword {
+    margin-bottom: 20px;
+}
+
+.LoginCheakbox label {
+    color: #eee;
+}
+
+.loginbutton {
+    margin-top: 15px;
+    width: 380px;
+    padding: 12px;
+    background-color: #00baff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loginbutton:hover {
+    background-color: #0093cc;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
