@@ -63,7 +63,6 @@ function Home() {
                   {!isLoggedIn && (
                     <Link className="nav-link" to="/Login">
                       {t("login")}
-                      
                     </Link>
                   )}
                 </li>
@@ -83,6 +82,11 @@ function Home() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/ContactUs">
                     {t("ContactUs")}
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Admingate">
+                    {t("Admingate")}
                   </Link>
                 </li>
               </ul>

@@ -1,11 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { travelContext } from "../App";
 import axios from "axios";
 import "./cart.css";
-
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 function Cart() {
   const { cart, setCart } = useContext(travelContext);
+  const [count, setCount] = useState(0);
 
+  const increse = () => {
+    setCount(count + 1);
+  };
+  const decrese = () => {
+    setCount(count - 1);
+  };
   // Get cart items
   useEffect(() => {
     axios
@@ -15,21 +22,32 @@ function Cart() {
       })
       .catch((err) => console.log(err));
   }, []);
+  //delete from cart
+  const cartDel = () => {
+    axios
+      .delete("http://localhost:5000/Carts/delete/:_id")
+      .then((res) => {
+        console.log(res.data.result);
 
+        setCart(res.data.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const total = (cart || []).reduce(
     (t, p) => t + (p.tourpackage?.price || 0),
     0
   );
+  console.log(cart);
 
   return (
     <div className="cart-page">
       <div className="cart-products">
-        <h2 className="section-title">YOUR PRODUCTS</h2>
+        <h2 className="section-title">Your Packages</h2>
 
         {Array.isArray(cart) && cart.length > 0 ? (
           cart.map((item, i) => (
-          
-            
             <div key={i} className="cart-item">
               <img
                 src={item.hotel.images}
@@ -41,17 +59,17 @@ function Cart() {
                 <h3>{item.tourpackage?.packageName}</h3>
 
                 <div className="price-row">
-                  <span className="item-price">
-                    ${item.tourpackage?.price}
-                  </span>
+                  <span className="item-price">${item.tourpackage?.price}</span>
 
                   <div className="quantity-box">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button onClick={decrese}>-</button>
+                    <span>{count}</span>
+                    <button onClick={increse}>+ </button>
                   </div>
 
-                  <button className="remove-btn">×</button>
+                  <button className="remove-btn" onClick={cartDel}>
+                    delete
+                  </button>
                 </div>
               </div>
             </div>
@@ -73,37 +91,38 @@ function Cart() {
         </div>
       </div>
 
-     
       <div className="cart-payment">
-        <h2 className="section-title">PAYMENT</h2>
+        <PayPalScriptProvider options={{ clientId: "test" }}>
+          <h2 className="section-title">PAYMENT</h2>
 
-        <label>Card Number</label>
-        <input type="text" placeholder="1234 5678 9012 3457" />
+          <label>Card Number</label>
+          <input type="text" placeholder="1234 5678 9012 3457" />
 
-        <label>Name on card</label>
-        <input type="text" placeholder="John Smith" />
+          <label>Name on card</label>
+          <input type="text" placeholder="John Smith" />
 
-        <div className="payment-row">
-          <div>
-            <label>Expiration</label>
-            <input type="text" placeholder="01/22" />
+          <div className="payment-row">
+            <div>
+              <label>Expiration</label>
+              <input type="text" placeholder="01/22" />
+            </div>
+
+            <div>
+              <label>Cvv</label>
+              <input type="password" placeholder="•••" />
+            </div>
           </div>
 
-          <div>
-            <label>Cvv</label>
-            <input type="password" placeholder="•••" />
-          </div>
-        </div>
+          <p className="payment-text">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit obcaecati.
+          </p>
 
-        <p className="payment-text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit obcaecati.
-        </p>
+          <PayPalButtons style={{ layout: "horizontal" }} />
 
-        <button className="buy-btn">BUY NOW</button>
-
-        <a className="back-link" href="/">
-          ← Back to shopping
-        </a>
+          <a className="back-link" href="/">
+            ← Back to shopping
+          </a>
+        </PayPalScriptProvider>
       </div>
     </div>
   );

@@ -45,7 +45,11 @@ function Tourpackages() {
                 <Card.Title>{tour.packageName}</Card.Title>
                 <Card.Text>
                   {tour.description} <br />
-                  {tour.price}
+                  Price :{tour.price}
+                  <br />
+                  Hotel-rate : {tour.hotel.stars}
+                  <br />
+                  {tour.hotel.rooms.roomType}
                 </Card.Text>
                 <Button variant="primary" onClick={() => addToCart(tour)}>
                   Add To Cart

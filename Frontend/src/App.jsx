@@ -17,6 +17,7 @@ import { useLocation } from "react-router-dom";
 import Bottompage from "./components/Bottompage";
 import i18n from "./components/I18n";
 import Navbar from "./components/Home";
+import Admingate from "./components/Admingate";
 export const travelContext = createContext();
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [packagedetailes, setpackageDetailes] = useState([]);
-  const [showNavbar, setShowNavbar] = useState(true);   
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -45,7 +46,6 @@ function App() {
       }
     }
   }, []);
-
 
   return (
     <travelContext.Provider
@@ -78,9 +78,9 @@ function App() {
     >
       {!showNavbar ||
       location.pathname === "/Login" ||
-      location.pathname === "/Register" ? null :<Home />
-      
-      }
+      location.pathname === "/Register" ? null : (
+        <Home />
+      )}
       <Routes>
         <Route
           path="/"
@@ -111,6 +111,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/PackageDetails/:id" element={<PackageDetails />} />
+        <Route path="/Admingate" element={<Admingate />} />
       </Routes>
     </travelContext.Provider>
   );
