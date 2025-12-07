@@ -38,8 +38,8 @@ function Tourpackages() {
     <div className="packageimage">
       {tourPackage.map((tour, index) => {
         return (
-          <div key={index} className="">
-            <Card style={{ width: "18rem" }}>
+          <div key={index} className="allcards">
+            <Card className="cardtours" style={{ width: "18rem" }}>
               <Card.Img src={tour.hotel.images} alt="hotel" />
               <Card.Body>
                 <Card.Title>{tour.packageName}</Card.Title>
@@ -49,7 +49,8 @@ function Tourpackages() {
                   <br />
                   Hotel-rate : {tour.hotel.stars}
                   <br />
-                  {tour.hotel.rooms.roomType}
+                  {tour.hotel.address} <br />
+                  {}
                 </Card.Text>
                 <Button variant="primary" onClick={() => addToCart(tour)}>
                   Add To Cart

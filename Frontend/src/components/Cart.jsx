@@ -23,9 +23,9 @@ function Cart() {
       .catch((err) => console.log(err));
   }, []);
   //delete from cart
-  const cartDel = () => {
+  const cartDel = (id) => {
     axios
-      .delete("http://localhost:5000/Carts/delete/:_id")
+      .delete("http://localhost:5000/Carts/delete/$")
       .then((res) => {
         console.log(res.data.result);
 
