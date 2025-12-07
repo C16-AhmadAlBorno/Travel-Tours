@@ -55,20 +55,6 @@ function Home() {
                 </li>
 
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Register">
-                    {t("register")}
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  {!isLoggedIn && (
-                    <Link className="nav-link" to="/Login">
-                      {t("login")}
-                    </Link>
-                  )}
-                </li>
-
-                <li className="nav-item">
                   <Link className="nav-link" to="/Cart">
                     Cart
                   </Link>
