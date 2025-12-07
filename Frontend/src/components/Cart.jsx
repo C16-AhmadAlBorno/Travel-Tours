@@ -23,16 +23,16 @@ function Cart() {
 
   return (
     <div className="cart-page">
-      {/* LEFT - PRODUCTS */}
       <div className="cart-products">
         <h2 className="section-title">YOUR PRODUCTS</h2>
 
         {Array.isArray(cart) && cart.length > 0 ? (
           cart.map((item, i) => (
+          
+            
             <div key={i} className="cart-item">
-              {/* image */}
               <img
-                src={item.tourpackage?.hotel.images}
+                src={item.hotel.images}
                 alt="product"
                 className="cart-item-img"
               />
@@ -73,7 +73,7 @@ function Cart() {
         </div>
       </div>
 
-      {/* RIGHT - PAYMENT */}
+     
       <div className="cart-payment">
         <h2 className="section-title">PAYMENT</h2>
 
