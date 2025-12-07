@@ -6,20 +6,33 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 function Cart() {
   const { cart, setCart } = useContext(travelContext);
   const [count, setCount] = useState(0);
-  const [quantities, setQuantities] = useState({});
+  const [quantity, setQuantity] = useState(0);
 
-  const increse = () => {
-    setCount(count + 1);
+  const increse = (id) => {
+    const newcart = [...cart];
+    const item = newcart.find((i) => i._id === id);
+
+    item.quantity += 1;
+    setCart(newcart);
   };
-  const decrese = () => {
-    setCount(count - 1);
+  const decrese = (id) => {
+    const newcart = [...cart];
+    const item = newcart.find((i) => i._id === id);
+    {
+      item.quantity > 1 ? (item.quantity -= 1) : 0;
+    }
+    setCart(newcart);
   };
   // Get cart items
   useEffect(() => {
     axios
       .get("http://localhost:5000/Carts/items")
       .then((res) => {
-        setCart(res.data.cart || []);
+        const newCart = res.data.cart;
+        newCart.forEach((item) => {
+          item.quantity = 1;
+        });
+        setCart(newCart);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -34,10 +47,12 @@ function Cart() {
         console.log(err);
       });
   };
-  const total = (cart || []).reduce(
-    (t, p) => t + (p.tourpackage?.price || 0),
-    0
-  );
+  const total = cart.reduce((sum, item) => {
+    const price = item.tourpackage?.price || 0; // ✅ حماية من undefined
+    const qty = item.quantity || 1;
+
+    return sum + price * qty;
+  }, 0);
 
   return (
     <div className="cart-page">
@@ -57,11 +72,13 @@ function Cart() {
                 <h3>{item.tourpackage?.packageName}</h3>
 
                 <div className="price-row">
-                  <span className="item-price">${item.tourpackage?.price}</span>
+                  <span className="item-price">
+                    ${(item.tourpackage?.price || 0) * item.quantity}
+                  </span>
 
                   <div className="quantity-box">
                     <button onClick={decrese}>-</button>
-                    <span>{count}</span>
+                    <span>{item.quantity}</span>
                     <button onClick={increse}>+ </button>
                   </div>
 
