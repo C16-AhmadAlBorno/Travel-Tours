@@ -6,6 +6,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 function Cart() {
   const { cart, setCart } = useContext(travelContext);
   const [count, setCount] = useState(0);
+  const [quantities, setQuantities] = useState({});
 
   const increse = () => {
     setCount(count + 1);
@@ -25,11 +26,9 @@ function Cart() {
   //delete from cart
   const cartDel = (id) => {
     axios
-      .delete("http://localhost:5000/Carts/delete/$")
+      .delete(`http://localhost:5000/Carts/delete/${id}`)
       .then((res) => {
-        console.log(res.data.result);
-
-        setCart(res.data.result);
+        setCart(cart.filter((item) => item._id !== id));
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +38,6 @@ function Cart() {
     (t, p) => t + (p.tourpackage?.price || 0),
     0
   );
-  console.log(cart);
 
   return (
     <div className="cart-page">
@@ -67,7 +65,10 @@ function Cart() {
                     <button onClick={increse}>+ </button>
                   </div>
 
-                  <button className="remove-btn" onClick={cartDel}>
+                  <button
+                    className="remove-btn"
+                    onClick={() => cartDel(item._id)}
+                  >
                     delete
                   </button>
                 </div>

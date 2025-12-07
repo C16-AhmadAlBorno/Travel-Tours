@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Login from "./Login";
+import Dropdown from "react-bootstrap/Dropdown";
 
 function Home() {
   const { t, i18n } = useTranslation();
@@ -92,6 +93,21 @@ function Home() {
               </ul>
 
               <div className="d-flex align-items-center gap-2">
+                <Dropdown>
+                  <Dropdown.Toggle className="accountButton">
+                    Account
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item as={Link} to="/Login">
+                      Login
+                    </Dropdown.Item>
+
+                    <Dropdown.Item as={Link} to="/Register">
+                      Register
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
                 <button
                   className="btn btn-outline-light btn-sm"
                   onClick={() => {
@@ -111,6 +127,7 @@ function Home() {
                 >
                   EN
                 </button>
+
                 {isLoggedIn && (
                   <button
                     className="btn btn-light btn-sm ms-2"
