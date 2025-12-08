@@ -50,7 +50,8 @@ function Tourpackages() {
                   Hotel-rate : {tour.hotel.stars}
                   <br />
                   {tour.hotel.address} <br />
-                  {}
+                  {tour.hotel.city} <br />
+                  {tour.hotel.country}
                 </Card.Text>
                 <Button variant="primary" onClick={() => addToCart(tour)}>
                   Add To Cart

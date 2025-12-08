@@ -9,19 +9,23 @@ function Cart() {
   const [quantity, setQuantity] = useState(0);
 
   const increse = (id) => {
-    const newcart = [...cart];
-    const item = newcart.find((i) => i._id === id);
-
-    item.quantity += 1;
-    setCart(newcart);
+    const newCart = cart.map((element, index) => {
+      if (element._id === id) {
+        element.quantity += 1;
+      }
+      return element;
+    });
+    console.log(newCart);
+    setCart(newCart);
   };
   const decrese = (id) => {
-    const newcart = [...cart];
-    const item = newcart.find((i) => i._id === id);
-    {
-      item.quantity > 1 ? (item.quantity -= 1) : 0;
-    }
-    setCart(newcart);
+    const newCart = cart.map((element, index) => {
+      if (element._id === id) {
+        element.quantity -= 1;
+      }
+      return element;
+    });
+    setCart(newCart);
   };
   // Get cart items
   useEffect(() => {
@@ -48,7 +52,8 @@ function Cart() {
       });
   };
   const total = cart.reduce((sum, item) => {
-    const price = item.tourpackage?.price || 0; // ✅ حماية من undefined
+    console.log(cart);
+    const price = item.tourpackage?.price || 0;
     const qty = item.quantity || 1;
 
     return sum + price * qty;
@@ -77,9 +82,9 @@ function Cart() {
                   </span>
 
                   <div className="quantity-box">
-                    <button onClick={decrese}>-</button>
+                    <button onClick={()=> decrese(item._id)}>-</button>
                     <span>{item.quantity}</span>
-                    <button onClick={increse}>+ </button>
+                    <button onClick={() => increse(item._id)}>+ </button>
                   </div>
 
                   <button
