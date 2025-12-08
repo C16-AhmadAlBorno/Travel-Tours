@@ -72,8 +72,8 @@ function Home() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/Admingate">
-                    {t("Admingate")}
+                  <Link className="nav-link" to="">
+                    {t("")}
                   </Link>
                 </li>
               </ul>

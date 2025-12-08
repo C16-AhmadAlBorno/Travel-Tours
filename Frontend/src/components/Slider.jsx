@@ -7,7 +7,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { Fade } from "react-slideshow-image";
 const slideCountryImg = [
   {
-    url: `https://media.istockphoto.com/id/514325748/photo/bosphorus-bridge-during-the-sunset-istanbul.jpg?s=1024x1024&w=is&k=20&c=ezqVq4qiRTPi3kTZNRveddp2ed4BXfcYjJnUzgXBgDk=`,
+    url: `https://www.holidaytravel.jo/sites/default/files/2019-01/shutterstock_143091637.jpg`,
     caption: "Turkey",
   },
   {
@@ -15,7 +15,7 @@ const slideCountryImg = [
     caption: "Cairo",
   },
   {
-    url: `https://q8-press.com/wp-content/uploads/2025/06/baku-city-780x470.jpg`,
+    url: `https://www.traveliun.com/wp-content/uploads/2023/03/%D8%A7%D8%B0%D8%B1%D8%A8%D9%8A%D8%AC%D8%A7%D9%86-%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A-%D9%88%D9%83%D8%A7%D9%84%D8%A9-%D8%AA%D8%B1%D8%A7%D9%81%D9%84%D9%8A%D9%88%D9%86-%D9%84%D9%84%D8%B3%D9%81%D8%B1-%D9%88%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%AD%D8%A92.jpg`,
     caption: "Aderbejan",
   },
   {
@@ -30,13 +30,15 @@ function Slider() {
       <Fade>
         {slideCountryImg.map((country, i) => {
           return (
-            <div key={i}>
+            <div key={i} >
               <img
                 src={country.url}
                 alt={country.caption}
                 title={country.caption}
+              
                 style={{ width: "1800px", height: "500px", objectFit: "cover" }}
               />
+             
             </div>
           );
         })}

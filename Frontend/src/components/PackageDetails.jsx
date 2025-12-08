@@ -31,7 +31,7 @@ function PackageDetails() {
     position: "absolute",
     bottom: "20px",
     left: "20px",
-    color: "red",
+    color: "rgb(36, 110, 7)",
     textShadow: "2px 2px 6px rgba(0,0,0,0.7)" 
   }}>
     <h2>{packagedetailes.packageName}</h2>
