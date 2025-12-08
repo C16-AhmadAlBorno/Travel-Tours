@@ -29,7 +29,7 @@ function Tourpackages() {
     axios
       .post("http://localhost:5000/Carts/new", item)
       .then((res) => {
-        setCart(res.data);
+        setCart([...cart, res.data.result]);
       })
       .catch((err) => console.log(err));
   };
